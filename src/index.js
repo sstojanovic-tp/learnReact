@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDom from 'react-dom';
 import SeasonDisplay from './SeasonDisplay';
-import global from './index.scss';
+import './index.scss';
 import Loader from "./loaderCmp";
 
 class App extends React.Component {
@@ -21,10 +21,10 @@ class App extends React.Component {
     console.log('Cmp is updated');
   }
 
-  render() {
+  renderContent() {
     if(!this.state.lat && !this.state.errMsg) {
       return (
-        <Loader/>
+        <Loader msg={"Please accept location request"}/>
       )
     }
     if(!this.state.errMsg && this.state.lat) {
@@ -41,6 +41,14 @@ class App extends React.Component {
         </div>
       );
     }
+  }
+
+  render() {
+    return(
+      <div className={'border red'} style={{height: '100%'}}>
+        {this.renderContent()}
+      </div>
+    );
   }
 }
 

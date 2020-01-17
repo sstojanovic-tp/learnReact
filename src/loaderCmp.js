@@ -1,15 +1,19 @@
 import React from "react";
 
-const Loader = () => {
+const Loader = (props) => {
     return(
       <div className={'ui segment'} style={{height:'100%'}}>
         <div className={'ui active dimmer'}>
           <div className={'ui big text loader'}>
-            Loading
+            {props.msg}
           </div>
         </div>
       </div>
     );
+};
+
+Loader.defaultProps = {
+  msg: 'Loading...'
 };
 
 export default Loader;
