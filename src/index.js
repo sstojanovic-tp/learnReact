@@ -1,12 +1,46 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDom from 'react-dom';
+import SeasonDisplay from './SeasonDisplay';
+import global from './index.scss';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+class App extends React.Component {
+  state = {
+    lat: null,
+    errMsg: ''
+  };
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+  componentDidMount() {
+    window.navigator.geolocation.getCurrentPosition(
+      position => {this.setState({ lat: position.coords.latitude })},
+      err => {this.setState({ errMsg: err.message })}
+    )
+  }
+
+  componentDidUpdate() {
+    console.log('Cmp is updated');
+  }
+
+  render() {
+    if(!this.state.lat && !this.state.errMsg) {
+      return (
+        <div>Please give power to the browser to determine your location</div>
+      )
+    }
+    if(!this.state.errMsg && this.state.lat) {
+      return (
+        <>
+          <SeasonDisplay lat={this.state.lat}/>
+        </>
+      );
+    }
+    if(!this.state.lat && this.state.errMsg) {
+      return (
+        <div>
+          Error: {this.state.errMsg}
+        </div>
+      );
+    }
+  }
+}
+
+ReactDom.render(<App />, document.querySelector('#root'));

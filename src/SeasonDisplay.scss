@@ -1,0 +1,26 @@
+.icon-left {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.icon-right {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.season-wrap {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.summer {
+        background: khaki;
+    }
+    &.winter {
+        background: lightblue;
+    }
+}
