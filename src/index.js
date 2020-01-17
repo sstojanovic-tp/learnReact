@@ -2,6 +2,7 @@ import React from "react";
 import ReactDom from 'react-dom';
 import SeasonDisplay from './SeasonDisplay';
 import global from './index.scss';
+import Loader from "./loaderCmp";
 
 class App extends React.Component {
   state = {
@@ -23,7 +24,7 @@ class App extends React.Component {
   render() {
     if(!this.state.lat && !this.state.errMsg) {
       return (
-        <div>Please give power to the browser to determine your location</div>
+        <Loader/>
       )
     }
     if(!this.state.errMsg && this.state.lat) {
