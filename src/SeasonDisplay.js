@@ -1,5 +1,6 @@
 import React from "react";
 import Style from './SeasonDisplay.scss';
+
 const seasonConfig = {
     summer: {
       text: "Let's hit the beach!",
@@ -26,9 +27,9 @@ const SeasonDisplay = props => {
   const {text, iconName} = seasonConfig[season];
   return(
     <div className={`${season} season-wrap`} style={Style.seasonWarp}>
-      <i className={`icon-left massive icon ${iconName}`} style={Style.iconLeft}/>
+      <i className={`icon-left massive icon ${iconName} ${season}`} style={Style.iconLeft}/>
       <h1>{text}</h1>
-      <i className={`icon-right massive icon ${iconName}`} style={Style.iconRight}/>
+      <i className={`icon-right massive icon ${iconName} ${season}`} style={Style.iconRight}/>
     </div>
   );
 };

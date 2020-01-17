@@ -19,8 +19,18 @@
 
     &.summer {
         background: khaki;
+
+        .icon {
+            color: red;
+        }
+
     }
+
     &.winter {
         background: lightblue;
+
+        .icon {
+            color: deepskyblue;
+        }
     }
 }
