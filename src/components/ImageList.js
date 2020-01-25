@@ -11,7 +11,7 @@ const ImageList = (props) => {
     )
   });
   return (
-    <div className={'ui segment'}>
+    <div className={'ui segment image-list'}>
       {images}
     </div>
   )

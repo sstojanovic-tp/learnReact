@@ -10,18 +10,20 @@ class ImageCard extends React.Component{
   }
 
   componentDidMount() {
+    //its too early on cmp did mont to found out what is the height of the image from unsplash api so on load evene lister
     this.imageRef.current.addEventListener('load', this.setSpans)
   }
 
    setSpans = () => {
-      this.setState({spans: this.imageRef.current.clientHeight});
-      console.log(this.state.spans)
-  };
+     const height = this.imageRef.current.clientHeight;
+     const spans = Math.ceil(height / 10);
+     this.setState({spans: spans});
+   };
 
   render() {
     const{description, urls} = this.props.image;
       return(
-        <div >
+        <div style={{gridRowEnd: `span ${this.state.spans}`}}>
           <img
             ref={this.imageRef}
             src={urls.regular}
