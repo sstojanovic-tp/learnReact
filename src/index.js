@@ -4,6 +4,7 @@ import './index.scss';
 import SearchBar from "./Components/SearchBar";
 import youtube, {baseParams} from "./API/youtube";
 import VideoList from "./Components/VideoList";
+import VideoDetail from "./Components/VideoDetail";
 
 class App extends React.Component {
   state = {
@@ -22,7 +23,7 @@ class App extends React.Component {
   };
 
   onVideoSelect = (video) => {
-      console.log('From  the app', video)
+      this.setState({selectVideo: video})
   };
 
   render() {
@@ -36,6 +37,7 @@ class App extends React.Component {
           videos={this.state.videos}
           onVideoSelect={this.onVideoSelect}
         />
+        <VideoDetail video={this.state.selectedVideo}/>
       </div>
     )
   }

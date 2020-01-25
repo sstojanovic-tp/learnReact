@@ -1,11 +1,10 @@
 import React from 'react';
 
-class VideoDetail extends React.Component{
-  render() {
-    return(
-      <div>Trt</div>
-    )
-  }
-}
+const VideoDetail = (props) => {
+
+  return (
+    <div>Trt</div>
+  )
+};
 
 export default VideoDetail;
