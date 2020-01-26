@@ -4,8 +4,8 @@ const VideoItem = ({video, onVideoSelect}) => {
     return(
       <div className={'item'}
            style={{display: 'flex', alignItems: 'center', cursor: 'pointer'}}
-            onClick={() => onVideoSelect(video)}>
-
+            onClick={() => onVideoSelect(video)}
+      >
         <img className={'ui image'}
              style={{maxWidth: '150px'}}
              src={video.snippet.thumbnails.medium.url}
