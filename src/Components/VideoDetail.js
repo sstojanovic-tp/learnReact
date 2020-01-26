@@ -2,11 +2,21 @@ import React from 'react';
 
 const VideoDetail = ({video}) => {
   if(!video) {
-    return <div>Loading...</div>;
+    return(
+      <div>Loading...</div>
+    );
   }
-  console.log(video);
+  const videoSrc = `https://www.youtube.com/embed/${video.id.videoId}`;
   return(
     <div>
+      <div className={'ui embed'}>
+        <iframe src={videoSrc}
+                frameBorder="0"
+                title='Video Player'
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen>
+        </iframe>
+      </div>
       <div className={'ui segment'}>
         <h4 className={'ui header'}>
           {video.snippet.title}
